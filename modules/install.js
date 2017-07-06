@@ -58,7 +58,8 @@ export function install() {
     };
 
     const replaceReducer = (reducer) => {
-      return store.replaceReducer(liftReducer(reducer));
+      store.replaceReducer(liftReducer(reducer));
+      currentEffect = none();
     };
 
     runEffect({ type: '@@ReduxLoop/INIT' }, initialEffect);
